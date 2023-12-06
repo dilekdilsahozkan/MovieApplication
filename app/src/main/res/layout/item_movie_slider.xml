@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:movie="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="constants"
+            type="com.example.movieapplication.presentation.constants.Constants" />
+        <variable
+            name="item"
+            type="com.example.movieapplication.data.remote.dto.MovieListDto" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="yes">
+
+        <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            movie:src="@{constants.BASE_POSTER_IMAGE_URL + item.poster_path}"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@drawable/gradiant_color"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/movie_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="@{item.title}"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:fontFamily="@font/roboto_bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/movie_detail"/>
+
+        <TextView
+            android:id="@+id/movie_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="40dp"
+            android:maxLines="2"
+            android:text="@{item.overview}"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:lineHeight="16dp"
+            android:fontFamily="@font/roboto_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

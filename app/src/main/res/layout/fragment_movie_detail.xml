@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:movie="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="constants"
+            type="com.example.movieapplication.presentation.constants.Constants" />
+
+        <variable
+            name="item"
+            type="com.example.movieapplication.data.remote.dto.MovieDetailDto" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/movie_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="fitXY"
+                movie:src="@{constants.BASE_POSTER_IMAGE_URL + item.poster_path}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/gradiant_color"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/rating_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/movie_image"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_imdb_logo"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_star"/>
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_gravity="center"
+                    android:maxLength="3"
+                    android:text="@{item.vote_average.toString()}"
+                    android:textSize="13dp"
+                    android:fontFamily="@font/roboto_medium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="/10"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="13dp"
+                    android:fontFamily="@font/roboto_medium"/>
+
+                <ImageView
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/gold_dot"/>
+
+                <TextView
+                    android:id="@+id/movie_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="center"
+                    movie:dayMonthYearDateFormat="@{item.release_date}"
+                    android:textSize="13dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/movie_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@{item.title}"
+                android:textSize="20dp"
+                android:fontFamily="@font/roboto_bold"
+                app:layout_constraintTop_toBottomOf="@id/rating_linear"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/movie_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@{item.overview}"
+                android:textSize="15dp"
+                android:lineHeight="20dp"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintTop_toBottomOf="@id/movie_name"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>
