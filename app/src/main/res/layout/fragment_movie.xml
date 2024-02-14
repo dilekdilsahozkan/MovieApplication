@@ -23,7 +23,7 @@
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/view_pager"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="380dp"
                     android:clipToPadding="false"
                     app:layout_collapseMode="parallax"/>
 

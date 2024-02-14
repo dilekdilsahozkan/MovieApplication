@@ -22,7 +22,7 @@
         <ImageView
             android:id="@+id/movie_image"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="match_parent"
             movie:src="@{constants.BASE_POSTER_IMAGE_URL + item.poster_path}"
             android:scaleType="fitXY"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +31,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="match_parent"
             android:background="@drawable/gradiant_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

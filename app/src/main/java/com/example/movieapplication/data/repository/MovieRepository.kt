@@ -9,5 +9,5 @@ import javax.inject.Inject
 class MovieRepository @Inject constructor(private val service: MovieService) {
     suspend fun getNowPlayingMovie() : Response<MovieDto> = service.getNowPlayingMovie()
     suspend fun getUpcomingMovie() : Response<MovieDto> = service.getUpcomingMovie()
-    suspend fun getMovieDetail(media_id: String) : Response<MovieDetailDto> = service.getMovieDetail(media_id)
+    suspend fun getMovieDetail(mediaId: String) : Response<MovieDetailDto> = service.getMovieDetail(mediaId)
 }

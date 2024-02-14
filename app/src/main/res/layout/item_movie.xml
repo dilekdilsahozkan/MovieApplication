@@ -38,10 +38,10 @@
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/movie_image"
                     android:layout_width="0dp"
-                    android:layout_height="104dp"
+                    android:layout_height="100dp"
                     android:layout_marginStart="16dp"
                     android:layout_weight="2"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     app:riv_corner_radius="2dp"
                     movie:src="@{constants.BASE_POSTER_IMAGE_URL + item.poster_path}" />
 
